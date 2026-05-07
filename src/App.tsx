@@ -10,6 +10,8 @@ import WhatsAppButton from './components/WhatsAppButton';
 import Footer from './components/Footer';
 import { User, Shield } from 'lucide-react';
 import TimelineKepalaSekolah from './components/TimelineKepalaSekolah';
+import VideoGallery from './components/KelasBilingualGallery';
+import BeritaMunaqosah from './components/BeritaMunaqosah';
 
 type Section = 'home' | 'sejarah' | 'visi-misi' | 'struktur' | 'kelas-bilingual' | 'spiritual-learning' | 'pendidikan-berkarakter' | 'kegiatan-agama-sosial' | 'ekstrakurikuler' | 'pagi-ceria' | 'prestasi'| 'student-stage' | 'berita' | 'karya' | 'kegiatan' | 'sarana' | 'kontak' | 'ppdb' | 'admin-login' | 'admin-dashboard';
 
@@ -488,19 +490,7 @@ berikut:
         );
 
       case 'berita':
-      case 'karya':
-      case 'kegiatan':
-        return (
-          <ContentSection title={
-            currentSection === 'berita' ? 'Berita Sekolah' :
-            currentSection === 'karya' ? 'Ruang Karya' : 'Kegiatan Sekolah'
-          }>
-            <div className="text-center py-12">
-              <User className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-              <p className="text-gray-600">Konten akan segera hadir</p>
-            </div>
-          </ContentSection>
-        );
+  return <BeritaMunaqosah />;
 
       default:
         return null;
@@ -520,6 +510,10 @@ berikut:
               <Hero onNavigate={handleNavigate} />
               <Highlights />
             </>
+          )}
+
+          {currentSection === 'kelas-bilingual' && (
+            <VideoGallery />
           )}
 
           {/* ✅ Konten lain tetap di dalam container */}

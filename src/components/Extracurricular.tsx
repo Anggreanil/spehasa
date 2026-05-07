@@ -55,13 +55,7 @@ const Extracurricular: React.FC = () => {
       title: "Robotika",
       color: "from-purple-500 to-purple-600",
       bgColor: "bg-purple-50",
-      image: "/pagarnusa.jpeg"
-    },
-    {
-      title: "Menulis",
-      color: "from-indigo-500 to-indigo-600",
-      bgColor: "bg-indigo-50",
-      image: "/pramuka.jpg"
+      image: "/robotika.png"
     },
     {
       title: "Al Banjari & Qiroah",
