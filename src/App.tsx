@@ -12,10 +12,12 @@ import { User, Shield } from 'lucide-react';
 import TimelineKepalaSekolah from './components/TimelineKepalaSekolah';
 import VideoGallery from './components/KelasBilingualGallery';
 import BeritaMunaqosah from './components/BeritaMunaqosah';
+import BeritaSekolah from './components/BeritaSekolah';
 
 type Section = 'home' | 'sejarah' | 'visi-misi' | 'struktur' | 'kelas-bilingual' | 'spiritual-learning' | 'pendidikan-berkarakter' | 'kegiatan-agama-sosial' | 'ekstrakurikuler' | 'pagi-ceria' | 'prestasi'| 'student-stage' | 'berita' | 'karya' | 'kegiatan' | 'sarana' | 'kontak' | 'ppdb' | 'admin-login' | 'admin-dashboard';
 
 export default function App() {
+  const [selectedBerita, setSelectedBerita] = useState<string | null>(null);
   const [currentSection, setCurrentSection] = useState<Section>('home');
   const [user, setUser] = useState<any>(null);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -489,8 +491,25 @@ berikut:
           </ContentSection>
         );
 
-      case 'berita':
-  return <BeritaMunaqosah />;
+    case 'berita':
+
+  if (selectedBerita === 'munaqosah') {
+    return (
+      <ContentSection title="Berita Sekolah">
+        <BeritaMunaqosah
+  onBack={() => setSelectedBerita(null)}
+/>
+      </ContentSection>
+    );
+  }
+
+  return (
+    <ContentSection title="Berita Sekolah">
+      <BeritaSekolah
+        onSelectBerita={(id) => setSelectedBerita(id)}
+      />
+    </ContentSection>
+  );
 
       default:
         return null;

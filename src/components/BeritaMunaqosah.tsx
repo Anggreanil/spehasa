@@ -1,6 +1,12 @@
 import { useEffect } from 'react';
 
-export default function BeritaMunaqosah() {
+interface Props {
+  onBack: () => void;
+}
+
+export default function BeritaMunaqosah({
+  onBack
+}: Props) {
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -16,6 +22,13 @@ export default function BeritaMunaqosah() {
 
   return (
     <section className="max-w-5xl mx-auto bg-white rounded-2xl shadow-md p-8">
+      
+      <button
+  onClick={onBack}
+  className="mb-8 flex items-center gap-2 text-green-700 hover:text-green-800 font-semibold transition"
+>
+  ← Kembali
+</button>
 
       {/* JUDUL */}
       <h1 className="text-4xl font-bold text-gray-800 leading-snug mb-4">
