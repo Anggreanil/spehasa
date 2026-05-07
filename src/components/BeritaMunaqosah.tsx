@@ -21,7 +21,7 @@ export default function BeritaMunaqosah({
   }, []);
 
   return (
-    <section className="max-w-5xl mx-auto bg-white rounded-2xl shadow-md p-8">
+    <section>
       
       <button
   onClick={onBack}
