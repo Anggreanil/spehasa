@@ -46,10 +46,10 @@ export default function BeritaMunaqosah({
       {/* GAMBAR BERITA */}
 <div className="mb-10 rounded-2xl overflow-hidden shadow-md">
   <img
-    src="/berita-munaqosah.jpeg"
-    alt="Berita Munaqosah"
-    className="w-full h-[500px] object-cover"
-  />
+  src="/berita-munaqosah.jpeg"
+  alt="Berita Munaqosah"
+  className="w-full h-auto rounded-2xl"
+/>
 </div>
 
       {/* ISI BERITA */}
