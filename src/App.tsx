@@ -1,3 +1,5 @@
+import { useState, useEffect, useRef } from 'react';
+import { supabase } from './lib/supabase';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Highlights from './components/Highlights';
