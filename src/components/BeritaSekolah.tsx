@@ -1,49 +1,43 @@
-interface Props {
-  onSelectBerita: (id: string) => void;
-}
+import { useNavigate } from 'react-router-dom';
 
-export default function BeritaSekolah({
-  onSelectBerita
-}: Props) {
+export default function BeritaSekolah() {
+  const navigate = useNavigate();
+
+  const beritaList = [
+    {
+      id: "munaqosah",
+      title: "SMP Hasjim Asj’ari Gelar Munaqosah dan Tasmi'",
+      image: "/berita-munaqosah.jpeg",
+      link: "/berita/munaqosah"
+    },
+    {
+      id: "bilingual",
+      title: "Ujian Praktik Kelas Bilingual: Public Speaking Skill",
+      image: "/UPBing.jpeg",
+      link: "/berita/bilingual"
+    }
+  ];
 
   return (
-
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {beritaList.map((item) => (
+        <div key={item.id} className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition">
+          <img src={item.image} alt={item.title} className="w-full h-60 object-cover" />
 
-      <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition">
+          <div className="p-6">
+            <h2 className="text-xl font-bold text-gray-800 mb-4">
+              {item.title}
+            </h2>
 
-        <img
-          src="/berita-munaqosah.jpeg"
-          alt="Berita Munaqosah"
-          className="w-full h-60 object-cover"
-        />
-
-        <div className="p-6">
-
-          <h2 className="text-2xl font-bold text-gray-800 mb-4 leading-snug">
-            SMP Hasjim Asj’ari Gelar Munaqosah dan Tasmi'
-          </h2>
-
-          <button
-  onClick={() => onSelectBerita('munaqosah')}
-  className="group inline-flex items-center gap-2 text-[#005033] font-semibold hover:text-[#05764e] transition"
->
-
-  <span>
-    Baca Selengkapnya
-  </span>
-
-  <span className="transition-transform duration-300 group-hover:translate-x-1">
-    →
-  </span>
-
-</button>
-
+            <button
+              onClick={() => navigate(item.link)}
+              className="text-green-700 font-semibold hover:underline"
+            >
+              Baca Selengkapnya →
+            </button>
+          </div>
         </div>
-
-      </div>
-
+      ))}
     </div>
-
   );
 }

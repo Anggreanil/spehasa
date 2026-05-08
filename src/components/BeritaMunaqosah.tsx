@@ -124,36 +124,41 @@ export default function BeritaMunaqosah({
       <div className="mt-12 flex flex-wrap items-center gap-4">
 
   <button
-    onClick={() => {
-      navigator.share({
-        title: 'SMP Hasjim Asj’ari Tulangan Gelar Kegiatan Munaqosah dan Tasmi’ Juz 30 Tahun 2026',
-        text: 'Berita kegiatan Munaqosah dan Tasmi’ Juz 30 SMP Hasjim Asj’ari Tulangan',
-        url: window.location.href,
-      });
-    }}
-    className="flex items-center gap-2 bg-gradient-to-r from-[#005033] to-[#05764e] hover:scale-105 text-white px-6 py-3 rounded-full shadow-lg transition-all duration-300"
+  onClick={() => {
+    const shareData = {
+      title: 'SMP Hasjim Asj’ari Tulangan Gelar Kegiatan Munaqosah dan Tasmi’ Juz 30 Tahun 2026',
+      text: 'Berita kegiatan Munaqosah dan Tasmi’ Juz 30 SMP Hasjim Asj’ari Tulangan',
+      url: window.location.href,
+    };
+
+    if (navigator.share) {
+      navigator.share(shareData);
+    } else {
+      navigator.clipboard.writeText(window.location.href);
+      alert('Link disalin!');
+    }
+  }}
+  className="flex items-center gap-2 bg-gradient-to-r from-[#005033] to-[#05764e] hover:scale-105 text-white px-6 py-3 rounded-full shadow-lg transition-all duration-300 active:scale-95"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={2}
+    stroke="currentColor"
+    className="w-5 h-5"
   >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M7.217 10.907a2.25 2.25 0 1 0 0-3.182m0 3.182 7.566 4.318m0 0a2.25 2.25 0 1 0 3.182-3.182m-3.182 3.182-7.566-4.318m0 0a2.25 2.25 0 1 1 0-3.182"
+    />
+  </svg>
 
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={2}
-      stroke="currentColor"
-      className="w-5 h-5"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M7.217 10.907a2.25 2.25 0 1 0 0-3.182m0 3.182 7.566 4.318m0 0a2.25 2.25 0 1 0 3.182-3.182m-3.182 3.182-7.566-4.318m0 0a2.25 2.25 0 1 1 0-3.182"
-      />
-    </svg>
-
-    <span className="font-semibold">
-      Share Berita
-    </span>
-
-  </button>
+  <span className="font-semibold">
+    Share Berita
+  </span>
+</button>
 
 </div>
 
